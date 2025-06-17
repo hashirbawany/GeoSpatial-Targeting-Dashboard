@@ -30,7 +30,14 @@ def launch_commune_map_app(
     
     # Sidebar: department selector
     departments = sorted(gdf[adm2_col].unique())
-    default_depts = default_depts if default_depts else departments[:2]
+    if not default_depts and default_communes:
+        default_depts = sorted(
+            gdf[gdf[adm3_col].isin(default_communes)][adm2_col].unique()
+        )
+    else:
+        default_depts = default_depts if default_depts else departments[:2]
+
+    
     selected_depts = st.sidebar.multiselect("Select departments (ADM2):", departments, default=default_depts)
     
     # Sidebar: commune selector
@@ -106,13 +113,26 @@ def launch_commune_map_app(
 
     st.title("Interactive Commune & Department Map")
     st_folium(m, width=800, height=600)
+###################################################################################
 
+#Running the list
+communes = [
+    "Keur Momar Sarr",
+    "Sakal",
+    "Gandiaye",
+    "Médina Sabakh",
+    "Mpal",
+    "Podor",
+    "Malem Niani",
+    "Kothiary"
+]
 
 launch_commune_map_app(
     shapefile_path="Senegal/datafiles/sen_admbnda_adm3_anat_20240520.shp",
     adm3_col="ADM3_FR",
     adm2_col="ADM2_FR",
     map_center=(16.0, -9.5),
+    default_communes=communes,
     map_zoom=6
 )    
 

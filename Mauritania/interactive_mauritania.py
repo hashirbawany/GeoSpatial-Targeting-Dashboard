@@ -25,7 +25,8 @@ selected_depts = st.multiselect("Select departments (ADM2):", departments, defau
 
 # Filter communes from selected departments
 communes_in_selected = gdf[gdf["ADM2_EN"].isin(selected_depts)]["ADM3_EN"].sort_values().unique()
-selected_communes = st.multiselect("Select communes to highlight:", communes_in_selected, default=list(communes_in_selected))
+default = ["Djiguenni", "Feirenni", "Basseknou", "Vessale"]
+selected_communes = st.multiselect("Select communes to highlight:", communes_in_selected, default=default)
 
 # Base map
 m = folium.Map(location=[20.0, -10.0], zoom_start=6)

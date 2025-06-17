@@ -25,7 +25,7 @@ selected_depts = st.multiselect("Select departments (ADM2):", departments, defau
 
 # Filter communes from selected departments
 communes_in_selected = gdf[gdf["ADM2_EN"].isin(selected_depts)]["ADM3_EN"].sort_values().unique()
-default = ["Djiguenni", "Feirenni", "Basseknou", "Vessale"]
+default = [c for c in default if c in communes_in_selected]
 selected_communes = st.multiselect("Select communes to highlight:", communes_in_selected, default=default)
 
 # Base map

@@ -107,17 +107,7 @@ def launch_commune_map_app(
     st_folium(m, width=800, height=600)
 ###################################################################################
 
-# Running the list
-# communes = [
-#     "Keur Momar Sarr",
-#     "Sakal",
-#     "Gandiaye",
-#     "Médina Sabakh",
-#     "Mpal",
-#     "Podor",
-#     "Malem Niani",
-#     "Kothiary"
-# ]
+# Running the function
 
 departments = [
     "Louga",
@@ -129,12 +119,24 @@ departments = [
     "Goudiry"
 ]
 
+communes = [
+    "Keur Momar Sarr",
+    "Sakal",
+    "Gandiaye",
+    "Médina Sabakh",
+    "Mpal",
+    "Podor",
+    "Malem Niani",
+    "Kothiary"
+]
+
+
 launch_commune_map_app(
     shapefile_path="Senegal/datafiles/sen_admbnda_adm3_anat_20240520.shp",
     adm3_col="ADM3_FR",
     adm2_col="ADM2_FR",
     map_center=(16.0, -9.5),
-    # default_communes=communes,
+    default_communes=communes,
     default_depts=departments,
     map_zoom=6
 )    

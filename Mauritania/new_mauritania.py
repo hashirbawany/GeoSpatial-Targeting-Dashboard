@@ -122,7 +122,7 @@ communes = ["Djiguenni", "Feirenni", "Basseknou", "Vessale"]
 departments=["Bassiknou", "Djiguenni"]
 
 launch_commune_map_app(
-    shapefile_path=r"C:\Users\hashi\OneDrive - Higher Education Commission\Desktop\DIME\New intervention rolled out in Africa\Map task climate\Shp Files\mrt_adm_ansade_20240327_ab_shp\mrt_admbnda_adm3_ansade_20240327.shp",
+    shapefile_path="Mauritania/datafiles/mrt_admbnda_adm3_ansade_20240327.shp",
     adm3_col="ADM3_EN",
     adm2_col="ADM2_EN",
     map_center=(16.0, -9.5),

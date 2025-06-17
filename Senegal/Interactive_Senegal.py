@@ -119,16 +119,16 @@ departments = [
     "Goudiry"
 ]
 
-communes = [
-    "Keur Momar Sarr",
-    "Sakal",
-    "Gandiaye",
-    "Médina Sabakh",
-    "Mpal",
-    "Podor",
-    "Malem Niani",
-    "Kothiary"
-]
+# communes = [
+#     "Keur Momar Sarr",
+#     "Sakal",
+#     "Gandiaye",
+#     "Médina Sabakh",
+#     "Mpal",
+#     "Podor",
+#     "Malem Niani",
+#     "Kothiary"
+# ]
 
 
 launch_commune_map_app(
@@ -136,7 +136,7 @@ launch_commune_map_app(
     adm3_col="ADM3_FR",
     adm2_col="ADM2_FR",
     map_center=(16.0, -9.5),
-    default_communes=communes,
+    # default_communes=communes,
     default_depts=departments,
     map_zoom=6
 )    

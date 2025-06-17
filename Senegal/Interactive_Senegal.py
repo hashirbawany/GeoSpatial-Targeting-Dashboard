@@ -11,6 +11,7 @@ def launch_commune_map_app(
     adm3_col: str,
     adm2_col: str,
     default_depts: list = None,
+    default_communes: list=None,
     map_center: tuple = (20.0, -10.0),
     map_zoom: int = 6
 ):
@@ -34,7 +35,9 @@ def launch_commune_map_app(
     
     # Sidebar: commune selector
     communes_in_selected = gdf[gdf[adm2_col].isin(selected_depts)][adm3_col].sort_values().unique()
-    selected_communes = st.sidebar.multiselect("Select communes to highlight:", communes_in_selected, default=list(communes_in_selected))
+    default_communes = default_communes if default_communes else communes_in_selected
+    selected_communes = st.sidebar.multiselect("Select communes to highlight:", communes_in_selected, default=default_communes)
+
     
     # Create base map
     m = folium.Map(location=map_center, zoom_start=map_zoom)

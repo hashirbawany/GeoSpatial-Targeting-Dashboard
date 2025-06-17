@@ -30,14 +30,6 @@ def launch_commune_map_app(
     
     # Sidebar: department selector
     departments = sorted(gdf[adm2_col].unique())
-    if not default_depts and default_communes:
-        default_depts = sorted(
-            gdf[gdf[adm3_col].isin(default_communes)][adm2_col].unique()
-        )
-    else:
-        default_depts = default_depts if default_depts else departments[:2]
-
-    
     selected_depts = st.sidebar.multiselect("Select departments (ADM2):", departments, default=default_depts)
     
     # Sidebar: commune selector
